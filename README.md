@@ -5,6 +5,6 @@ Playing with source generators
 ```
 
 > In this demo, i m building some [source generators](https://devblogs.microsoft.com/dotnet/introducing-c-source-generators/). 
-> - `HelloWorldGenerator` : a basic example to generate code saying hello
+> - `HelloWorldGenerator` : a basic source generator saying hello
 
 **`Tools`** : vs19, net 5.0
