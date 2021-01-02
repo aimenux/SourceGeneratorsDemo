@@ -1,5 +1,4 @@
 ﻿using System;
-using HelloWorldGenerated;
 
 namespace App
 {
@@ -7,8 +6,8 @@ namespace App
     {
         public static void Main()
         {
-            HelloWorld.SayHello();
-
+            Example1.HelloWorldGenerated.HelloWorld.SayHello();
+            Example2.HelloWorldGenerated.HelloWorld.SayHello();
             Console.WriteLine("Press any key to exit !");
             Console.ReadKey();
         }

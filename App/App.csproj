@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -6,6 +6,10 @@
     <AssemblyName>App</AssemblyName>
     <RootNamespace>App</RootNamespace>
   </PropertyGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="AdditionalFiles\Example2-SourceCode.txt" />
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Lib\Lib.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />

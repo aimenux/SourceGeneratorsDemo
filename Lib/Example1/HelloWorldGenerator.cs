@@ -4,14 +4,14 @@ using System;
 using System.Net;
 using System.Text;
 
-namespace Lib
+namespace Lib.Example1
 {
     [Generator]
-    public class HelloWorldGenerator : ISourceGenerator
+    public class HelloWorldGenerator : AbstractSourceGenerator
     {
-        public const string Namespace = "HelloWorldGenerated";
+        private const string Namespace = "Example1.HelloWorldGenerated";
 
-        public void Execute(GeneratorExecutionContext context)
+        public override void Execute(GeneratorExecutionContext context)
         {
             var sourceCode =
 $@"
@@ -23,6 +23,7 @@ namespace {Namespace}
         public static void SayHello()
         {{
             Console.WriteLine(""Hello from generated code"");
+            Console.WriteLine(""Compiled by: {Environment.UserName}"");
             Console.WriteLine(""Compiled on: {Dns.GetHostName()}"");
             Console.WriteLine(""Compiled at: {DateTime.Now:F}"");
         }}
@@ -30,10 +31,6 @@ namespace {Namespace}
 }}";
 
             context.AddSource(Namespace, SourceText.From(sourceCode, Encoding.UTF8));
-        }
-
-        public void Initialize(GeneratorInitializationContext context)
-        {
         }
     }
 }

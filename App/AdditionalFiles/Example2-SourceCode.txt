@@ -1,0 +1,14 @@
+using System;
+namespace Example2.HelloWorldGenerated
+{
+    public static class HelloWorld
+    {
+        public static void SayHello()
+        {
+            Console.WriteLine("Hello from generated code");
+            Console.WriteLine("Compiled by: {0}");
+            Console.WriteLine("Compiled on: {1}");
+            Console.WriteLine("Compiled at: {2}");
+        }
+    }
+}
