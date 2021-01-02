@@ -8,6 +8,6 @@ Playing with source generators (net 5.0 feature)
 > - `Example1.HelloWorldGenerator` : a basic source generator saying hello, the source code is retrieved from an internal string field.
 > - `Example2.HelloWorldGenerator` : a basic source generator saying hello, the source code is retrieved from an external textual file.
 >
-> :pause_button: In order to debug source generators, we can set `isDebuggingEnabled` to `true` and launch solution compilation in debug mode.
+> :pause_button: In order to debug source generators, set `isDebuggingEnabled` to `true` in debug mode.
 
 **`Tools`** : vs19, net 5.0
