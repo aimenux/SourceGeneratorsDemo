@@ -9,6 +9,6 @@ Playing with source generators (net 5.0 feature)
 > - `Example2.HelloWorldGenerator` : a basic source generator saying hello, the source code is retrieved from an external textual file.
 > - `Example3.DiagnosticGenerator` : a source generator displaying diagnostics like infos, warnings or errors at compilation time.
 >
-> :pause_button: In order to debug source generators, set `isDebuggingEnabled` to `true` in debug mode.
+> :gear: In order to debug source generators, set `isDebuggingEnabled` to `true` in debug mode.
 
 **`Tools`** : vs19, net 5.0
