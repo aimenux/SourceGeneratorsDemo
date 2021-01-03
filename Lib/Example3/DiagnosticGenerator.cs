@@ -44,7 +44,7 @@ namespace Lib.Example3
             var lowerSeverity = severity.ToString().ToLower();
 
             var id = $"AUTO-{upperSeverity}001";
-            var message = $"This is an {lowerSeverity}.";
+            var message = $"This is {lowerSeverity}.";
 
             var diagnosticDescriptor = new DiagnosticDescriptor(
                 id,
