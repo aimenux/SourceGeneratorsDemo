@@ -1,0 +1,19 @@
+using System;
+namespace {0}
+{
+	public static class MathExtensions
+	{
+		public static bool IsPrime(this int number)
+		{
+			for (var i = 2; i < number; i++)
+			{
+				if (number % i == 0)
+				{
+					return false;
+				}
+			}
+
+			return true;
+		}
+	}
+}
