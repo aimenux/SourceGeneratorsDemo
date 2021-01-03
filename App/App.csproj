@@ -8,6 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="AdditionalFiles\Example3-SourceCode.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="AdditionalFiles\Example3-SourceCode.txt" />
     <AdditionalFiles Include="AdditionalFiles\Example2-SourceCode.txt" />
   </ItemGroup>
 

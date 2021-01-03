@@ -13,7 +13,7 @@ namespace Lib.Example2
     {
         public override void Execute(GeneratorExecutionContext context)
         {
-            var files = context.AdditionalFiles.Where(at => at.Path.EndsWith(".txt"));
+            var files = context.AdditionalFiles.Where(x => x.Path.Contains(Namespace));
             foreach (var file in files)
             {
                 var name = Path.GetFileNameWithoutExtension(file.Path);
@@ -23,14 +23,14 @@ namespace Lib.Example2
             }
         }
 
-        private static string GetSourceCodeFromFile(AdditionalText file, GeneratorExecutionContext context)
+        private string GetSourceCodeFromFile(AdditionalText file, GeneratorExecutionContext context)
         {
             var content = file.GetText(context.CancellationToken).ToString();
-
             return content
-                .Replace("{0}", Environment.UserName)
-                .Replace("{1}", Dns.GetHostName())
-                .Replace("{2}", DateTime.Now.ToString("F"));
+                .Replace("{0}", Namespace)
+                .Replace("{1}", Environment.UserName)
+                .Replace("{2}", Dns.GetHostName())
+                .Replace("{3}", DateTime.Now.ToString("F"));
         }
     }
 }

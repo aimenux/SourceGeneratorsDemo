@@ -9,8 +9,6 @@ namespace Lib.Example1
     [Generator]
     public class HelloWorldGenerator : AbstractSourceGenerator
     {
-        private const string Namespace = "Example1.HelloWorldGenerated";
-
         public override void Execute(GeneratorExecutionContext context)
         {
             var sourceCode =
@@ -29,8 +27,8 @@ namespace {Namespace}
         }}
     }}
 }}";
-
-            context.AddSource(Namespace, SourceText.From(sourceCode, Encoding.UTF8));
+            var sourceText = SourceText.From(sourceCode, Encoding.UTF8);
+            context.AddSource($"{Namespace}Generated", sourceText);
         }
     }
 }

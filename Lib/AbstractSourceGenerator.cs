@@ -1,5 +1,6 @@
 ﻿using Microsoft.CodeAnalysis;
 using System.Diagnostics;
+using System.Linq;
 
 namespace Lib
 {
@@ -11,6 +12,8 @@ namespace Lib
         {
             _isDebuggingEnabled = isDebuggingEnabled;
         }
+
+        public string Namespace => this.GetType().Namespace.Split('.').Last();
 
         public abstract void Execute(GeneratorExecutionContext context);
 
