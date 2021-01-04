@@ -4,6 +4,7 @@ using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Text;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace Lib
 {
@@ -71,6 +72,20 @@ namespace Lib
                 .ToList();
 
             return string.Join("\n", parameters);
+        }
+
+        public static string InitializeProperties(this INamedTypeSymbol symbol)
+        {
+            var sb = new StringBuilder();
+
+            foreach(var property in symbol.GetProperties())
+            {
+                sb.Append($"{{nameof({property.Name})}}={{{property.Name}}} ");
+            }
+
+            var str = sb.ToString().Trim();
+
+            return $"$\"{str}\";";
         }
     }
 }

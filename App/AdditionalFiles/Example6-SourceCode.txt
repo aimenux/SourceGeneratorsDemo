@@ -1,0 +1,8 @@
+using System;
+namespace {0}
+{
+	[AttributeUsage(AttributeTargets.Class)]
+    public sealed class {1}Attribute : Attribute 
+	{
+	}
+}

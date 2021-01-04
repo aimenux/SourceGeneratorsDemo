@@ -11,6 +11,7 @@ namespace App
             Example2.HelloWorld.SayHello();
             PrimeDisplayer();
             MovieDisplayer();
+            EmployeeDisplayer();
             Console.WriteLine("Press any key to exit !");
             Console.ReadKey();
         }
@@ -29,6 +30,17 @@ namespace App
             var releaseDate = new DateTime(2008, 1, 1);
             var movie = builder.Build("Taken", "BlaBla", releaseDate);
             Console.WriteLine($"Movie: {movie.Title}");
+        }
+
+        private static void EmployeeDisplayer()
+        {
+            var employee = new Employee
+            {
+                FirstName = "Yori",
+                LastName = "Kota"
+            };
+
+            Console.WriteLine(employee);
         }
     }
 }

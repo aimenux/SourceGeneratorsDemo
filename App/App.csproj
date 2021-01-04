@@ -11,9 +11,11 @@
     <None Remove="AdditionalFiles\Example3-SourceCode.txt" />
     <None Remove="AdditionalFiles\Example4-SourceCode.txt" />
     <None Remove="AdditionalFiles\Example5-SourceCode.txt" />
+    <None Remove="AdditionalFiles\Example6-SourceCode.txt" />
   </ItemGroup>
 
   <ItemGroup>
+    <AdditionalFiles Include="AdditionalFiles\Example6-SourceCode.txt" />
     <AdditionalFiles Include="AdditionalFiles\Example5-SourceCode.txt" />
     <AdditionalFiles Include="AdditionalFiles\Example4-SourceCode.txt" />
     <AdditionalFiles Include="AdditionalFiles\Example3-SourceCode.txt" />

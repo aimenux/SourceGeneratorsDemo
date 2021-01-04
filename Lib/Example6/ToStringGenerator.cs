@@ -5,12 +5,12 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace Lib.Example5
+namespace Lib.Example6
 {
     [Generator]
-    public class BuilderGenerator : AbstractSourceGenerator
+    public class ToStringGenerator : AbstractSourceGenerator
     {
-        private const string AttributeName = "AutoBuilder";
+        private const string AttributeName = "AutoToString";
 
         private string FullAttributeName => $"{Namespace}.{AttributeName}Attribute";
 
@@ -35,7 +35,7 @@ namespace Lib.Example5
                     {
                         sourceCode = GenerateSourceCode(declaredSymbol);
                         sourceText = SourceText.From(sourceCode, Encoding);
-                        context.AddSource($"{declaredSymbol.Name}Builder.cs", sourceText);
+                        context.AddSource($"{declaredSymbol.Name}Partial.cs", sourceText);
                     }
                 }
             }
@@ -60,15 +60,13 @@ namespace Lib.Example5
             var sb = new StringBuilder();
             var symbolName = symbol.Name;
             var symbolNamespace = symbol.ContainingNamespace.Name;
-            var symbolParameters = symbol.GenerateParameters();
-            var symbolInitializedParameters = symbol.InitializeParameters();
+            var initializedProperties = symbol.InitializeProperties();
             sb.AppendLine("using System;");
             sb.AppendLine($"namespace {symbolNamespace} {{");
-            sb.AppendLine($"public class {symbolName}Builder {{");
-            sb.AppendLine($"public {symbolName} Build ({symbolParameters}) {{");
-            sb.AppendLine($"var obj = new {symbolName}();");
-            sb.AppendLine(symbolInitializedParameters);
-            sb.AppendLine("return obj;}}}");
+            sb.AppendLine($"public partial class {symbolName} {{");
+            sb.AppendLine("public override string ToString()");
+            sb.AppendLine($"{{ return {initializedProperties} }}");
+            sb.AppendLine("}}");
             return sb.ToString();
         }
     }
