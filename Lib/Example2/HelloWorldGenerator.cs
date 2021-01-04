@@ -4,7 +4,6 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Text;
 
 namespace Lib.Example2
 {
@@ -18,7 +17,7 @@ namespace Lib.Example2
             {
                 var name = Path.GetFileNameWithoutExtension(file.Path);
                 var sourceCode = GetSourceCodeFromFile(file, context);
-                var sourceText = SourceText.From(sourceCode, Encoding.UTF8);
+                var sourceText = SourceText.From(sourceCode, Encoding);
                 context.AddSource($"{name}Generated", sourceText);
             }
         }

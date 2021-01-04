@@ -1,6 +1,7 @@
 ﻿using Microsoft.CodeAnalysis;
 using System.Diagnostics;
 using System.Linq;
+using System.Text;
 
 namespace Lib
 {
@@ -12,6 +13,8 @@ namespace Lib
         {
             _isDebuggingEnabled = isDebuggingEnabled;
         }
+
+        protected static readonly Encoding Encoding = Encoding.UTF8;
 
         public string Namespace => this.GetType().Namespace.Split('.').Last();
 

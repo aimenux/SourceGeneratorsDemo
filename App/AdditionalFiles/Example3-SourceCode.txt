@@ -2,7 +2,7 @@ using System;
 namespace {0}
 {
     [AttributeUsage(AttributeTargets.Class)]
-    public class {1}Attribute : Attribute
+    public sealed class {1}Attribute : Attribute
     {        
     }
 }

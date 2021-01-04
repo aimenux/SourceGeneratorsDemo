@@ -2,7 +2,6 @@
 using Microsoft.CodeAnalysis.Text;
 using System;
 using System.Net;
-using System.Text;
 
 namespace Lib.Example1
 {
@@ -27,7 +26,7 @@ namespace {Namespace}
         }}
     }}
 }}";
-            var sourceText = SourceText.From(sourceCode, Encoding.UTF8);
+            var sourceText = SourceText.From(sourceCode, Encoding);
             context.AddSource($"{Namespace}Generated", sourceText);
         }
     }

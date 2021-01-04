@@ -2,7 +2,6 @@
 using Microsoft.CodeAnalysis.Text;
 using System.IO;
 using System.Linq;
-using System.Text;
 
 namespace Lib.Example4
 {
@@ -16,7 +15,7 @@ namespace Lib.Example4
             {
                 var name = Path.GetFileNameWithoutExtension(file.Path);
                 var sourceCode = GetSourceCodeFromFile(file, context);
-                var sourceText = SourceText.From(sourceCode, Encoding.UTF8);
+                var sourceText = SourceText.From(sourceCode, Encoding);
                 context.AddSource($"{name}Generated", sourceText);
             }
         }

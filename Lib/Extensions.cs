@@ -27,5 +27,50 @@ namespace Lib
                 .ToList();
             return syntaxAttributes;
         }
+
+        public static bool HasAttribute(this INamedTypeSymbol declaredSymbol, INamedTypeSymbol attributeSymbol)
+        {
+            var attributes = declaredSymbol
+                .GetAttributes()
+                .Select(x => x.AttributeClass)
+                .Where(x => x?.Equals(attributeSymbol, SymbolEqualityComparer.Default) == true);
+
+            return attributes.Any();
+        }
+
+        public static ICollection<IPropertySymbol> GetProperties(this INamedTypeSymbol typeSymbol)
+        {
+            var properties = new List<IPropertySymbol>();
+
+            foreach (var member in typeSymbol.GetMembers())
+            {
+                if (member is IPropertySymbol propertySymbol)
+                {
+                    properties.Add(propertySymbol);
+                }
+            }
+
+            return properties;
+        }
+
+        public static string GenerateParameters(this INamedTypeSymbol symbol)
+        {
+            var parameters = symbol
+                .GetProperties()
+                .Select(x => $"{x.Type.Name} {x.Name.ToLower()}")
+                .ToList();
+
+            return string.Join(", ", parameters);
+        }
+
+        public static string InitializeParameters(this INamedTypeSymbol symbol)
+        {
+            var parameters = symbol
+                .GetProperties()
+                .Select(x => $"obj.{x.Name} = {x.Name.ToLower()};")
+                .ToList();
+
+            return string.Join("\n", parameters);
+        }
     }
 }
